@@ -37,5 +37,11 @@ namespace MiniDepartmentProject.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult GetDepartment(int id)
+        {
+            var department = _context.Departments.Find(id);
+            return View(department);
+        }
     }
 }
