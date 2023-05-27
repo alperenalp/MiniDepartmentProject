@@ -1,8 +1,28 @@
-﻿
+﻿@using MiniDepartmentProject.Models
+@model List<Department>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Departman</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach(var department in Model)
+    {
+        <tr>
+            <td>@department.Id</td>
+            <td>@department.Name</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+</table>
 
-<h1>Index</h1>
-
+<a href="#" class="btn btn-primary">Yeni Departman Ekle</a>
