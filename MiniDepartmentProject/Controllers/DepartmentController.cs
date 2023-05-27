@@ -26,5 +26,16 @@ namespace MiniDepartmentProject.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteDepartment(int id)
+        {
+            var department = _context.Departments.Find(id);
+            if (department != null)
+            {
+                _context.Departments.Remove(department);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
