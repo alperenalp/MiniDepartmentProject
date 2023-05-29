@@ -54,5 +54,11 @@ namespace MiniDepartmentProject.Controllers
             }
             return RedirectToAction("Index"); 
         }
+
+        public IActionResult DetailDepartment(int id)
+        {
+            var personels = _context.Personels.Where(p=>p.DepartmentId == id).ToList();
+            return View(personels);
+        }
     }
 }

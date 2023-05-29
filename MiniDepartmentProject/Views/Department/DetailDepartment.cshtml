@@ -1,0 +1,26 @@
+﻿@using MiniDepartmentProject.Models
+@model List<Personel>
+
+@{
+    ViewData["Title"] = "DetailDepartment";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>İsim</th>
+        <th>Soyisim</th>
+        <th>Şehir</th>
+    </tr>
+    @foreach (var personel in Model)
+    {
+        <tr>
+            <td>@personel.Id</td>
+            <td>@personel.Name</td>
+            <td>@personel.LastName</td>
+            <td>@personel.City</td>
+        </tr>
+    }
+</table>
