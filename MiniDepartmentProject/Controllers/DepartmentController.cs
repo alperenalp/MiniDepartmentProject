@@ -43,5 +43,16 @@ namespace MiniDepartmentProject.Controllers
             var department = _context.Departments.Find(id);
             return View(department);
         }
+
+        public IActionResult EditDepartment(Department request)
+        {
+            var department = _context.Departments.Find(request.Id);
+            if (department != null)
+            {
+                department.Name = request.Name;
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index"); 
+        }
     }
 }
