@@ -10,6 +10,7 @@ namespace MiniDepartmentProject.Models
         public string LastName { get; set; }
         public string City { get; set; }
 
+        public int DepartmentId { get; set; }
         public Department Department { get; set; }
     }
 }

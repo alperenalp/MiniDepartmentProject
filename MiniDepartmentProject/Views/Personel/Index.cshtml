@@ -1,0 +1,34 @@
+﻿@using MiniDepartmentProject.Models
+@model List<Personel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>İsim</th>
+        <th>Soyisim</th>
+        <th>Şehir</th>
+        <th>Departman</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var personel in Model)
+    {
+        <tr>
+            <td>@personel.Id</td>
+            <td>@personel.Name</td>
+            <td>@personel.LastName</td>
+            <td>@personel.City</td>
+            <td>@personel.Department.Name</td>
+            <td><a href="/Personel/DeletePersonel/@personel.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/GetPersonel/@personel.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Personel/CreatePersonel/" class="btn btn-primary">Yeni Personel Ekle</a>
