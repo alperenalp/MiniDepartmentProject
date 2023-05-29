@@ -7,5 +7,7 @@ namespace MiniDepartmentProject.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public List<Personel> Personels { get; set; }
     }
 }
