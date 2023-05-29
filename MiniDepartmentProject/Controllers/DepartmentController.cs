@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MiniDepartmentProject.Models;
 
 namespace MiniDepartmentProject.Controllers
@@ -7,19 +8,20 @@ namespace MiniDepartmentProject.Controllers
     {
         private Context _context = new Context();
 
+        [Authorize]
         public IActionResult Index()
         {
             var departments = _context.Departments.ToList();
             return View(departments);
         }
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult CreateDepartment()
         {
             return View();
         }
 
-        [HttpPost]
+		[HttpPost]
         public IActionResult CreateDepartment(Department department)
         {
             _context.Departments.Add(department);
@@ -27,7 +29,7 @@ namespace MiniDepartmentProject.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult DeleteDepartment(int id)
+		public IActionResult DeleteDepartment(int id)
         {
             var department = _context.Departments.Find(id);
             if (department != null)

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MiniDepartmentProject.Models;
@@ -8,7 +9,9 @@ namespace MiniDepartmentProject.Controllers
     public class PersonelController : Controller
     {
         Context _context = new Context();
-        public IActionResult Index()
+
+		[Authorize]
+		public IActionResult Index()
         {
             var personel = _context.Personels.Include(p => p.Department).ToList();
             return View(personel);
