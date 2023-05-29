@@ -1,0 +1,23 @@
+﻿@model MiniDepartmentProject.Models.Personel
+
+@{
+    ViewData["Title"] = "CreatePersonel";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<form class="form-group" method="post">
+    <b>İsim:</b>
+    @Html.TextBoxFor(x=>x.Name , new{@class="form-control"})
+    <br />
+    <b>Soyisim:</b>
+    @Html.TextBoxFor(x=>x.LastName , new{@class="form-control"})
+    <br />
+    <b>Şehir:</b>
+    @Html.TextBoxFor(x=>x.City , new{@class="form-control"})
+    <br />
+    <b>Departman:</b>
+    @Html.DropDownListFor(x=>x.Department.Id, (List<SelectListItem>)ViewBag.departments, new {@class="form-control"})
+    <br />
+    <button class="btn btn-info">Personel Ekle</button>
+</form>
